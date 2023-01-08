@@ -3,7 +3,7 @@ class ListsController < ApplicationController
     #Viewへ渡すためのインスタンス変数に空のModelオブジェクトを作成する。
     @list = List.new
   end
-  
+
   def create
     #1.&2.データを受け取り新規登録するためのインスタンス作成
     list = List.new(list_params)
@@ -14,6 +14,7 @@ class ListsController < ApplicationController
   end
 
   def index
+     @lists = List.all
   end
 
   def show
@@ -21,7 +22,7 @@ class ListsController < ApplicationController
 
   def edit
   end
-  
+
   private
   #ストロングパラメータ
   def list_params
