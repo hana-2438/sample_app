@@ -10,6 +10,7 @@ class ListsController < ApplicationController
     if @list.save
       redirect_to list_path(@list.id)
     else
+      @lists = List.all
       render :new
     end
   end
@@ -31,7 +32,7 @@ class ListsController < ApplicationController
     list.update(list_params)
     redirect_to list_path(list.id)
   end
-  
+
   def destroy
     list = List.find(params[:id])#データレコードを１件取得
     list.destroy#データ（レコード）を削除
